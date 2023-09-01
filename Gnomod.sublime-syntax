@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# License: https://github.com/mitranim/sublime-gnomod#misc
+# License: https://github.com/mitranim/sublime-gomod#misc
 
 file_extensions: [gno.mod, gno.work]
 scope: source.gnomod
