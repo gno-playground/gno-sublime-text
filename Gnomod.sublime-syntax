@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# License: https://github.com/mitranim/sublime-gomod#misc
+# License: https://github.com/mitranim/sublime-gnomod#misc
 
 file_extensions: [gno.mod, gno.work]
 scope: source.gnomod
@@ -25,24 +25,24 @@ contexts:
     - include: comment-match
     - include: punctuation-match
     - match: "{{ident}}"
-      scope: variable.gomod
+      scope: variable.gnomod
 
   comment-match:
     - match: //(?:.|\s)*
-      scope: comment.gomod
+      scope: comment.gnomod
 
   punctuation-match:
     - match: \(
-      scope: punctuation.section.parens.begin.gomod
+      scope: punctuation.section.parens.begin.gnomod
     - match: \)
-      scope: punctuation.section.parens.end.gomod
+      scope: punctuation.section.parens.end.gnomod
 
   statement-match:
     - match: (?:exclude|module|replace|require)(?={{ident_terminator}})
-      scope: keyword.gomod
+      scope: keyword.gnomod
       push: modvers-or-replacements-pop
     - match: "{{ident}}"
-      scope: keyword.gomod
+      scope: keyword.gnomod
       push:
         - include: before-eol-or-comment-pop
         - include: nonroot-match
@@ -53,10 +53,10 @@ contexts:
   #   package [version] => package [version]
   modvers-or-replacements-pop:
     - match: \(
-      scope: punctuation.section.parens.begin.gomod
+      scope: punctuation.section.parens.begin.gnomod
       set:
         - match: \)
-          scope: punctuation.section.parens.end.gomod
+          scope: punctuation.section.parens.end.gnomod
           # Note: go.mod expects only comments after a closing paren
           set:
             - include: comment-match
@@ -71,20 +71,20 @@ contexts:
       pop: true
 
     - match: =>(?={{ident_terminator}})
-      scope: keyword.operator.gomod
+      scope: keyword.operator.gnomod
 
     - match: '({{ident_body}})\s+(=>)(?={{ident_terminator}})'
       captures:
-        1: variable.gomod
-        2: keyword.operator.gomod
+        1: variable.gnomod
+        2: keyword.operator.gnomod
 
     - match: '({{ident_body}})\s+({{ident_body}})(?={{ident_terminator}})'
       captures:
-        1: variable.gomod
-        2: string.version.gomod
+        1: variable.gnomod
+        2: string.version.gnomod
 
     - match: "{{ident}}"
-      scope: variable.gomod
+      scope: variable.gnomod
 
   before-eol-or-comment-pop:
     - match: (?=//|$)

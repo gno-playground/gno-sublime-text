@@ -32,18 +32,18 @@ contexts:
 
   module-match:
     - match: \S+
-      scope: variable.gosum
+      scope: variable.gnosum
       set: version-match
 
   version-match:
     - include: eol-pop
     - match: ({{semver}})(?:([+-])({{version_checksum}}))?(?:(/)({{ident}}))?
       captures:
-        1: string.version.gosum
-        2: punctuation.separator.gosum
-        3: string.checksum.gosum
-        4: punctuation.separator.gosum
-        5: variable.gosum
+        1: string.version.gnosum
+        2: punctuation.separator.gnosum
+        3: string.checksum.gnosum
+        4: punctuation.separator.gnosum
+        5: variable.gnosum
     - match: (?=\S)
       set: checksum-match
 
@@ -51,6 +51,6 @@ contexts:
     - include: eol-pop
     - match: ({{algorithm}})(:)({{checksum}})
       captures:
-        1: entity.name.label.gosum
-        2: punctuation.separator.gosum
-        3: constant.language.gosum
+        1: entity.name.label.gnosum
+        2: punctuation.separator.gnosum
+        3: constant.language.gnosum
