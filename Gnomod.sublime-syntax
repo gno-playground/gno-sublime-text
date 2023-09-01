@@ -1,10 +1,6 @@
 %YAML 1.2
 ---
 # License: https://github.com/mitranim/sublime-gomod#misc
-#
-# http://www.sublimetext.com/docs/3/syntax.html
-# https://research.swtch.com/vgo-module
-# https://github.com/golang/go/tree/master/src/cmd/go/internal/modfile
 
 file_extensions: [gno.mod, gno.work]
 scope: source.gnomod
